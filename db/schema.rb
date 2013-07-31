@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130724184845) do
+ActiveRecord::Schema.define(version: 20130731204946) do
 
   create_table "applications", force: true do |t|
     t.integer  "user_id"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20130724184845) do
 
   create_table "logs", force: true do |t|
     t.integer  "application_id"
-    t.string   "type"
+    t.string   "log_type"
     t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
