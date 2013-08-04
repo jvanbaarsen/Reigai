@@ -1,6 +1,16 @@
 Logbox::Application.routes.draw do
 
+  #API
   post 'api/v1/notify' => 'logs#create'
+
+  #User stuff
+  resource :users
+  get 'sign_up' => 'users#new'
+  post 'sign_up' => 'users#create'
+
+  get 'sign_in' => 'sessions#new'
+
+  resources :sessions
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

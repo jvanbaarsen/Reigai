@@ -1,6 +1,10 @@
 FactoryGirl.define do
+  salt = "asdasdasdasd1234adsasd"
   factory :user do
     email "info@example.com"
+    password "secret"
+    salt salt
+    crypted_password Sorcery::CryptoProviders::BCrypt.encrypt("secret", salt)
   end
 
   factory :log do
