@@ -15,7 +15,9 @@
       <%= link_to "Sign in", sign_in_path%>
     </div>
     <div class="btn-group pull-right">
-     <%= f.button :submit, :class => 'btn-success pull-right' %>
+      <%= button_tag(type: 'submit', class: 'btn btn-small btn-success pull-right') do %>
+        <i class="icon-arrow-right"></i> Sign Up
+      <% end %>
     </div>
   </div>
 <% end %>

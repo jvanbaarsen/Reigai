@@ -1,16 +1,113 @@
 <!DOCTYPE html>
-<html>
 <head>
-  <title>Logbox</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic">
+  <title>LogBox</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, :id => "flash_#{name}" %>
-<% end %>
-<%= yield %>
+<div id="page-container">
+  <header class="navbar navbar-inverse">
+    <div class="navbar-inner remove-radius remove-box-shadow">
+      <div class="container-fluid">
+        <!-- Mobile Navigation, Shows up  on smaller screens -->
+        <ul class="nav pull-right visible-phone visible-tablet">
+          <li class="divider-vertical remove-margin"></li>
+          <li>
+          <!-- It is set to open and close the main navigation on smaller screens. The class .nav-collapse was added to aside#page-sidebar -->
+          <a href="javascript:void(0)" data-toggle="collapse" data-target=".nav-collapse">
+            <i class="icon-reorder"></i>
+          </a>
+          </li>
+        </ul>
+        <!-- END Mobile Navigation -->
 
+        <!-- Logo -->
+        <a href="index.html" class="brand"><%= image_tag('template/logo.png') %></a>
+        <!-- Loading Indicator, Used for demostrating how loading of widgets could happen, check main.js - uiDemo() -->
+        <div id="loading" class="hide pull-left"><i class="icon-certificate icon-spin"></i></div>
+
+        <!-- Header Widgets -->
+        <!-- You can create the widgets you want by replicating the following. Each one exists in a <li> element -->
+        <ul id="widgets" class="nav pull-right">
+          <!-- Just a divider -->
+          <li class="divider-vertical remove-margin"></li>
+          <!-- User Menu -->
+          <li class="dropdown dropdown-user">
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><%= image_tag('template/avatar.png') %> <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <!-- Just a button demostrating how loading of widgets could happen, check main.js- - uiDemo() -->
+            <li>
+            <a href="javascript:void(0)" class="loading-on"><i class="icon-refresh"></i> Refresh</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+            <!-- Modal div is at the bottom of the page before including javascript code -->
+            <a href="#modal-user-settings" role="button" data-toggle="modal"><i class="icon-user"></i> User Profile</a>
+            </li>
+            <li>
+            <a href="javascript:void(0)"><i class="icon-wrench"></i> App Settings</a>
+            </li>
+            <li class="divider"></li>
+            <li><%= link_to 'Log out', logout_path, id: 'logout'%></li>
+          </ul>
+          </li>
+          <!-- END User Menu -->
+        </ul>
+        <!-- END Header Widgets -->
+      </div>
+      <!-- END div#container-fluid -->
+    </div>
+    <!-- END Navbar Inner -->
+  </header>
+  <!-- END Header -->
+
+  <!-- Inner Container -->
+  <div id="inner-container"><!-- Sidebar -->
+    <aside id="page-sidebar" class="nav-collapse collapse">
+      <!-- Primary Navigation -->
+      <nav id="primary-nav">
+        <ul>
+          <li><a href="index.html"><i class="icon-fire"></i>Dashboard</a></li>
+          <li><a href="#"><i class="icon-magic"></i>Applications</a>
+            <ul>
+              <li><a href="page_ui_general.html"><i class="icon-star"></i>General</a></li>
+              <li><a href="page_forms.html"><i class="icon-th-list"></i>Forms</a></li>
+              <li><a href="page_tables.html"><i class="icon-table"></i>Tables</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <!-- END Primary Navigation -->
+    </aside>
+    <!-- END Sidebar -->
+    <!-- Page Content -->
+    <div id="page-content">
+      <h3 class="page-header page-header-top"><i class="icon-circle-blank"></i> Start here <small>Create your page</small></h3>
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :class => "alert alert-#{name}" %>
+      <% end %>
+      <%= yield %>
+    </div>
+    <!-- END Page Content -->
+
+    <!-- Footer -->
+    <footer>
+      <span id="year-copy"></span> &copy; <strong>uAdmin 1.3</strong> - Crafted with <i class="icon-heart"></i> by <strong><a href="http://goo.gl/vNS3I" target="_blank">pixelcave</a></strong>
+    </footer>
+    <!-- END Footer -->
+  </div>
+  <!-- END Inner Container -->
+</div>
+<!-- END Page Container -->
+
+<!-- Scroll to top link, check main.js - scrollToTop() -->
+<a href="#" id="to-top"><i class="icon-chevron-up"></i></a>
 </body>
 </html>
+
+

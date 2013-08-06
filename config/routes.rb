@@ -1,4 +1,5 @@
 Logbox::Application.routes.draw do
+  root 'dashboard#index'
 
   #API
   post 'api/v1/notify' => 'logs#create'
@@ -9,7 +10,7 @@ Logbox::Application.routes.draw do
   post 'sign_up' => 'users#create'
 
   get 'sign_in' => 'sessions#new'
-
+  get 'logout' => 'sessions#destroy'
   resources :sessions
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

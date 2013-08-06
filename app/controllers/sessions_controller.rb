@@ -5,10 +5,15 @@ class SessionsController < ApplicationController
   def create
     user = login(params[:email], params[:password])
     if user
-      flash[:notice] = "Signed in"
+      flash.now[:notice] = "Signed in"
     else
-      flash[:error] = "Email or password was invalid"
+      flash.now[:error] = "Email or password was invalid"
     end
     render :new
+  end
+
+  def destroy
+    logout
+    redirect_to sign_in_path, notice: 'Succesfully logged out'
   end
 end
