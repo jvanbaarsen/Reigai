@@ -1,24 +1,21 @@
 <h1>Create account</h1>
-<% if @user.errors.any? %>
-  <div class="error_messages">
-    <h2>Form is invalid</h2>
-    <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-<%= form_for @user, url: sign_up_path do |f| %>
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.text_field :password %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Sign Up" %>
+
+<%= simple_form_for @user, url: sign_up_path, html: {class: 'form-vertical'} do |f| %>
+  <%= f.input :email, label: false, wrapper: :prepend do %>
+    <%= f.input_field :email, placeholder: 'Email' %>
+    <%= content_tag :span, "", :class => "icon-envelope-alt add-on" %>
+  <% end %>
+  <%= f.input :password, label: false, wrapper: :prepend do %>
+    <%= f.password_field :password, placeholder: 'Password' %>
+    <%= content_tag :span, "", :class => "icon-asterisk add-on" %>
+  <% end %>
+  
+  <div class="control-group remove-margin clearfix">
+    <div class="pull-left">
+      <%= link_to "Sign in", sign_in_path%>
+    </div>
+    <div class="btn-group pull-right">
+     <%= f.button :submit, :class => 'btn-success pull-right' %>
+    </div>
   </div>
 <% end %>

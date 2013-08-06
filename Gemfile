@@ -11,9 +11,14 @@ gem 'jbuilder', '~> 1.2'
 gem 'sorcery', '~> 0.8.2'
 gem 'validates_email_format_of'
 gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'twitter-bootstrap-rails'
+gem "font-awesome-rails"
+gem 'unicorn'
+gem 'simple_form', '~> 3.0.0.rc'
+gem "less-rails"
+gem 'therubyracer'
 
 group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
 
@@ -27,5 +32,3 @@ end
 group :test, :development do
   gem 'sqlite3'
 end
-
-gem 'unicorn'

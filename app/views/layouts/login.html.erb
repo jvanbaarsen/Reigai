@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic">
+  <title>AdminTheme</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body class="login">
+<!-- Login Container -->
+<div id="login-container">
+  <div id="login-logo">
+    LOGBOX<br/>
+    <a href="">
+      <%= image_tag('template/uadmin_logo.png') %>
+    </a>
+  </div>
+  <p></p>
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :class => "alert alert-#{name}" %>
+  <% end %>
+  <%= yield %>
+
+</div>
+<!-- END Login Container -->
+
+
+<!-- Javascript code only for this page -->
+<script>
+$(function() {
+
+    var loginButtons = $('#login-buttons');
+    var loginForm = $('#login-form');
+
+    // Reveal login form
+    $('#login-btn-email').click(function() {
+      loginButtons.slideUp(600);
+      loginForm.slideDown(450);
+      });
+
+    // Hide login form
+    $('.login-back').click(function() {
+      loginForm.slideUp(450);
+      loginButtons.slideDown(600);
+      });
+
+    // Don't let 'forgot pass' button submit the form
+    $('#login-button-pass').click(function() {
+
+      // Forgot pass functionality goes here..
+
+      return false;
+      });
+});
+</script>
+</body>
+</html>
+
+

@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user
       flash[:notice] = "Signed in"
     else
-      flash[:alert] = "Email or password was invalid"
+      flash[:error] = "Email or password was invalid"
     end
     render :new
   end
