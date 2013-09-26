@@ -35,7 +35,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><%= link_to "logout", logout_path %></li>
-            <li class="dropdown">
+            <li class="dropdown pull-right">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Action</a></li>
@@ -47,6 +47,9 @@
                 <li><a href="#">One more separated link</a></li>
               </ul>
             </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Logout", logout_path %></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
