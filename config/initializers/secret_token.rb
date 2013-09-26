@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Logbox::Application.config.secret_key_base = '45a0e5d0a5ae5441664a76710a94d639a8f6c46b335b127074309e7c684f069d868dcb5bbc8072d64c56e0bcfe54ae432ed4a66edd4bbf39fb52884d7cc5774a'
+Reigai::Application.config.secret_key_base = '45a0e5d0a5ae5441664a76710a94d639a8f6c46b335b127074309e7c684f069d868dcb5bbc8072d64c56e0bcfe54ae432ed4a66edd4bbf39fb52884d7cc5774a'

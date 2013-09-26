@@ -1,4 +1,4 @@
-Logbox::Application.routes.draw do
+Reigai::Application.routes.draw do
   root 'dashboard#index'
 
   #API

@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Logbox::Application.load_tasks
+Reigai::Application.load_tasks
