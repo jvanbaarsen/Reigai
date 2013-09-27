@@ -29,4 +29,9 @@ describe Application do
       end
     end
   end
+
+  it "creates its own api key when created" do
+    application = Application.create
+    expect(application.api_key).not_to eq(nil)
+  end
 end

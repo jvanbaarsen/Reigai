@@ -19,7 +19,6 @@ FactoryGirl.define do
   end
 
   factory :application do
-    api_key "1234abcd"
   end
 end
 
