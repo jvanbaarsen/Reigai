@@ -15,7 +15,7 @@ feature 'Authentication' do
       fill_in "Email", with: "Invalid@email"
       click_button "Sign Up"
       expect(current_path).to eq(sign_up_path)
-      expect(page).to have_selector('.error')
+      expect(page).to have_selector('.errors')
     end
   end
 

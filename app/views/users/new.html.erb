@@ -4,7 +4,7 @@
       <h1>Reigai &bull; Create account</h1>
     </div>
     <% if @user.errors.any? %>
-      <div id="errorExplanation" class="bs-callout bs-callout-danger ">
+      <div class="errors bs-callout bs-callout-danger">
         <h4><i class="icon-warning-sign"></i> Please check the fields below:</h4>
         <ul>
         <% @user.errors.full_messages.each do |msg| %>
