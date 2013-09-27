@@ -1,5 +1,6 @@
 class Application < ActiveRecord::Base
-  belongs_to :user
+  has_many :subscriptions
+  has_many :users, through: :subscriptions
   has_many :logs do
     def build_from_api(data)
       proxy_association.owner.logs.new(
@@ -9,7 +10,6 @@ class Application < ActiveRecord::Base
     end
   end
 
-  validates :user, presence: true
   validates :api_key, presence: true
 end
 

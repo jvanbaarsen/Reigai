@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
   describe "Relations" do
-    it {should have_many(:applications)}
+    it {should have_many(:applications).through(:subscriptions)}
   end
 
   describe 'Validations' do

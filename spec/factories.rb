@@ -13,8 +13,12 @@ FactoryGirl.define do
     message "Awesome log"
   end
 
-  factory :application do
+  factory :subscription do
+    application
     user
+  end
+
+  factory :application do
     api_key "1234abcd"
   end
 end
