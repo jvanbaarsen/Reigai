@@ -11,11 +11,11 @@ gem 'sorcery', '~> 0.8.2'
 gem 'validates_email_format_of'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'unicorn'
-gem 'simple_form', '~> 3.0.0' #Maybe there is an update?
 gem "less-rails"
 gem 'therubyracer'
 gem 'twitter-bootswatch-rails', '~> 3.0.0'
 gem 'twitter-bootswatch-rails-helpers'
+gem 'font-awesome-rails'
 
 group :doc do
   gem 'sdoc', require: false

@@ -1,23 +1,34 @@
-<h1>Create account</h1>
-
-<%= simple_form_for @user, url: sign_up_path, html: {class: 'form-vertical'} do |f| %>
-  <%= f.input :email, label: false, wrapper: :prepend do %>
-    <%= f.input_field :email, placeholder: 'Email' %>
-    <%= content_tag :span, "", :class => "icon-envelope-alt add-on" %>
-  <% end %>
-  <%= f.input :password, label: false, wrapper: :prepend do %>
-    <%= f.password_field :password, placeholder: 'Password' %>
-    <%= content_tag :span, "", :class => "icon-asterisk add-on" %>
-  <% end %>
-  
-  <div class="control-group remove-margin clearfix">
-    <div class="pull-left">
-      <%= link_to "Sign in", sign_in_path%>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="page-header">
+      <h1>Reigai &bull; Create account</h1>
     </div>
-    <div class="btn-group pull-right">
-      <%= button_tag(type: 'submit', class: 'btn btn-small btn-success pull-right') do %>
-        <i class="icon-arrow-right"></i> Sign Up
+    <% if @user.errors.any? %>
+      <div id="errorExplanation" class="bs-callout bs-callout-danger ">
+        <h4><i class="icon-warning-sign"></i> Please check the fields below:</h4>
+        <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg  %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="well">
+      <%= form_for @user, url: sign_up_path do |f| %>
+
+        <div class="input-group form-group <%= "has-error" if @user.errors[:email].present? %>">
+          <%= f.text_field :email, class: 'form-control', placeholder: 'Email' %>
+          <span class="input-group-addon"><i class="icon-envelope"></i></span>
+        </div>
+        <div class="input-group form-group <%= "has-error" if @user.errors[:password].present? %>">
+          <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
+          <span class="input-group-addon"><i class="icon-unlock"></i></span>
+        </div>
+        <div class="form-group">
+          <%= button_tag "Sign Up", class: 'btn btn-block btn-info' %>
+        </div>
+        <%= link_to "Allready have an account? Log in here", sign_in_path%>
       <% end %>
     </div>
   </div>
-<% end %>
+</div>

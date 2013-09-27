@@ -54,6 +54,8 @@ GEM
       railties (>= 3.0.0)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
+    font-awesome-rails (3.2.1.2)
+      railties (>= 3.2, < 5.0)
     hike (1.2.3)
     httpauth (0.2.0)
     i18n (0.6.4)
@@ -135,9 +137,6 @@ GEM
       rdoc (~> 3.10)
     shoulda-matchers (2.2.0)
       activesupport (>= 3.0.0)
-    simple_form (3.0.0)
-      actionpack (>= 4.0.0, < 4.1)
-      activemodel (>= 4.0.0, < 4.1)
     sorcery (0.8.2)
       bcrypt-ruby (~> 3.0.0)
       oauth (~> 0.4.4)
@@ -190,6 +189,7 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 4.0.0)
   factory_girl_rails
+  font-awesome-rails
   jbuilder (~> 1.2)
   jquery-rails
   less-rails
@@ -199,7 +199,6 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   sdoc
   shoulda-matchers
-  simple_form (~> 3.0.0)
   sorcery (~> 0.8.2)
   sqlite3
   therubyracer
