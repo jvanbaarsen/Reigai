@@ -7,8 +7,10 @@ describe User do
 
   describe 'Validations' do
     it {should validate_presence_of(:email)}
+    it {should validate_presence_of(:full_name)}
     it {should validate_uniqueness_of(:email)}
     it {should validate_presence_of(:password)}
+    it {should validate_confirmation_of(:password)}
 
     it "accepts a valid email address" do
       user = FactoryGirl.build(:user)
@@ -19,5 +21,11 @@ describe User do
       user = FactoryGirl.build(:user, email: 'invalid@mail')
       expect(user).not_to be_valid
     end
+  end
+
+  describe "Fields" do
+    it {should respond_to(:email)}
+    it {should respond_to(:password)}
+    it {should respond_to(:full_name)}
   end
 end

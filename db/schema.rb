@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130927135554) do
+ActiveRecord::Schema.define(version: 20130927201904) do
 
   create_table "applications", force: true do |t|
     t.string   "api_key"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20130927135554) do
     t.datetime "updated_at"
     t.string   "crypted_password"
     t.string   "salt"
+    t.string   "full_name"
   end
 
 end

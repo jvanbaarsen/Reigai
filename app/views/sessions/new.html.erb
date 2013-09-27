@@ -5,7 +5,7 @@
     </div>
     <div class="well">
       <%= bootswatch_flash %>
-      <%= form_tag sessions_path do %>
+      <%= form_tag login_path do %>
         <div class="input-group form-group">
           <%= text_field_tag :email, nil, class: 'form-control', placeholder: 'Email' %>
           <span class="input-group-addon"><i class="icon-envelope"></i></span>
@@ -17,7 +17,7 @@
         <div class="form-group">
           <%= button_tag "Sign In", class: 'btn btn-block btn-info' %>
         </div>
-        <%= link_to "Dont have an account? Create one today!", sign_up_path%>
+        <%= link_to "Dont have an account? Create one today!", register_path%>
       <% end %>
     </div>
   </div>
