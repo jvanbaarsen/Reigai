@@ -15,13 +15,8 @@ class LogsController < ApplicationController
     end
   end
 
-
   private
   def convert_hash_keys_to_symbols(hash)
     Hash[hash.map{ |k, v| [k.to_sym, v] }]
-  end
-
-  def render_400
-    render nothing: true, status: 400
   end
 end
