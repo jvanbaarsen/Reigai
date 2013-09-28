@@ -7,10 +7,11 @@ class SessionsController < ApplicationController
     user = login(params[:email], params[:password])
     if user
       flash.now[:notice] = "Signed in"
+      redirect_to root_path
     else
       flash.now[:error] = "Email or password was invalid"
+      render :new
     end
-    render :new
   end
 
   def destroy
