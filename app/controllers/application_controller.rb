@@ -4,10 +4,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   layout :determine_layout
+  before_filter :require_login
 
   def determine_layout
     return 'login' unless current_user
     return 'application'
   end
 
+  def not_authenticated
+    flash[:alert] = "First login to access this page" unless request.fullpath == root_path
+    redirect_to login_url
+  end
 end
