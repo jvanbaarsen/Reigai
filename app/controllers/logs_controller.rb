@@ -1,5 +1,6 @@
 require 'json'
 class LogsController < ApplicationController
+  skip_before_filter :require_login, only: [:create]
   def create
     begin
       data = convert_hash_keys_to_symbols(JSON.parse(params[:data]))
