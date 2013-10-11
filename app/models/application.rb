@@ -12,6 +12,7 @@ class Application < ActiveRecord::Base
   end
 
   validates :api_key, presence: true
+  validates :name, presence: true
 
   after_initialize :create_api_key
 

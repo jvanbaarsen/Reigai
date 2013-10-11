@@ -10,4 +10,9 @@ Reigai::Application.routes.draw do
   get 'login' => 'sessions#new', as: 'login'
   post 'login' => 'sessions#create'
   get 'logout' => 'sessions#destroy'
+
+  # Application
+  get 'application/new' => 'applications#new', as: 'create_application'
+  post 'application/new' => 'applications#create'
+  get 'application/:id' => 'applications#show', as: 'application'
 end

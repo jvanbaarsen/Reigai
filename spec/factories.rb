@@ -21,6 +21,8 @@ FactoryGirl.define do
   end
 
   factory :application do
+    api_key 'aabbccddeeff'
+    name 'Test Application'
   end
 end
 

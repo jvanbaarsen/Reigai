@@ -44,7 +44,7 @@ feature 'Authentication' do
     scenario 'When i click on Logout, i should be logged out' do
       login_user_post(user.email, 'secret')
       visit '/'
-      click_link 'logout'
+      click_link 'Logout'
       expect(page).to have_content('Succesfully logged out')
     end
   end

@@ -3,16 +3,7 @@
     <div class="page-header">
       <h1>Reigai &bull; Create account</h1>
     </div>
-    <% if @user.errors.any? %>
-      <div class="errors bs-callout bs-callout-danger">
-        <h4><i class="icon-warning-sign"></i> Please check the fields below:</h4>
-        <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg  %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
+    <%= show_nice_errors(@user) %>
     <div class="well">
       <%= form_for @user, url: register_path do |f| %>
         <div class="input-group form-group <%= "has-error" if @user.errors[:full_name].present? %>">
