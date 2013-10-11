@@ -1,4 +1,4 @@
-require 'SecureRandom'
+require 'securerandom'
 class Application < ActiveRecord::Base
   has_many :subscriptions
   has_many :users, through: :subscriptions
