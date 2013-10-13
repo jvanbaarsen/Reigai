@@ -28,4 +28,13 @@ describe User do
     it {should respond_to(:password)}
     it {should respond_to(:full_name)}
   end
+
+  describe '#subscribe' do
+    it "subscribed the user to a given application" do
+      user = FactoryGirl.create(:user)
+      application = FactoryGirl.create(:application)
+      user.subscribe(application)
+      expect(user.applications).to include(application)
+    end
+  end
 end

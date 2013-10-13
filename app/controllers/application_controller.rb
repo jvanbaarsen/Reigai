@@ -6,6 +6,12 @@ class ApplicationController < ActionController::Base
   layout :determine_layout
   before_filter :require_login
 
+  def applications
+    @applications ||= current_user.applications.all
+  end
+  helper_method :applications
+
+  private
   def determine_layout
     return 'login' unless current_user
     return 'application'

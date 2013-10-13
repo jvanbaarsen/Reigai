@@ -4,12 +4,13 @@ class ApplicationsController < ApplicationController
   end
 
   def new
-    @application = current_user.applications.new
+    @application = Application.new
   end
 
   def create
-    @application = current_user.applications.new(application_params)
+    @application = Application.new(application_params)
     if @application.save
+      current_user.subscribe(@application)
       flash[:success] = 'Your application has been created'
       redirect_to application_path(@application)
     else

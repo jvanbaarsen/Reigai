@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness:true, email_format: true
   validates :password, presence: true, confirmation: true
   validates :password_confirmation, presence: true
+
+  def subscribe(application)
+    self.applications << application
+  end
 end
