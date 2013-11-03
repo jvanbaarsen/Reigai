@@ -23,7 +23,7 @@ describe ApplicationsController do
 
       it 'subscribes the current user to the application' do
         create_application
-        expect(current_user.applications.last).to eq(Application.last)
+        expect(@controller.current_user.applications.last).to eq(Application.last)
       end
     end
 
