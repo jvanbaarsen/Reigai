@@ -5,10 +5,6 @@ module Sorcery
         page.driver.post(login_url, {email: email, password: password})
       end
 
-      def login_user(user)
-        login_user_post(user.email)
-        return user
-      end
     end
   end
 end
