@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   before_filter :require_login
 
   def applications
-    @applications ||= current_user.applications.all
+    @applications ||= current_user.applications
   end
   helper_method :applications
 
