@@ -37,11 +37,11 @@
               <ul class="dropdown-menu applications-menu">
                 <% if applications.size > 0 %>
                   <% applications.each do |app| %>
-                    <%= link_to app.name, application_path(app) %>
+                    <li><%= link_to app.name, application_path(app) %></li>
                   <% end %>
                 <% end %>
                 <li class="divider"></li>
-                <li><a href="#">Create application</a></li>
+                <li><%= link_to 'Create application', create_application_path %></li>
               </ul>
             </li>
           </ul>
