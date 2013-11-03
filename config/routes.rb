@@ -1,8 +1,12 @@
 Reigai::Application.routes.draw do
   root 'dashboard#index'
 
+  namespace 'api' do
+    namespace 'v1' do
+      post 'notify' => 'logs#create'
+    end
+  end
 
-  post 'api/v1/notify' => 'logs#create'
 
   get 'register' => 'users#new', as: 'register'
   post 'register' => 'users#create'

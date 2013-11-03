@@ -1,5 +1,5 @@
 require 'json'
-class LogsController < ApplicationController
+class Api::V1::LogsController < ApplicationController
   skip_before_filter :require_login, only: [:create]
   def create
     begin
