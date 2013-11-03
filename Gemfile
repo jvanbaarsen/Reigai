@@ -30,6 +30,7 @@ end
 
 group :development do
   gem 'puma'
+  gem 'bullet'
 end
 
 group :test, :development do
