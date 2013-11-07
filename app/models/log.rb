@@ -4,5 +4,4 @@ class Log < ActiveRecord::Base
   validates :application, presence: true
   validates :log_type, presence: true
   validates :message, presence: true
-
 end

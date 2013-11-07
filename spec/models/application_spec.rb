@@ -1,18 +1,18 @@
 require 'spec_helper'
 
 describe Application do
-  describe "Relations" do
+  context "Relations" do
     it {should have_many(:users).through(:subscriptions)}
     it {should have_many(:logs)}
   end
 
-  describe 'Validations' do
+  context 'Validations' do
     it {should validate_presence_of(:api_key)}
     it {should validate_presence_of(:name)}
   end
 
-  describe 'Association extensions' do
-    describe '.logs.build_from_api' do
+  context 'Association extensions' do
+    context '.logs.build_from_api' do
       it 'responds to build_from_api' do
         expect(subject.logs).to respond_to(:build_from_api)
       end
