@@ -1,6 +1,6 @@
 class ApplicationsController < ApplicationController
   def show
-
+    @application = current_user.get_application(params[:id])
   end
 
   def new

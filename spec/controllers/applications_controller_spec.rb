@@ -1,6 +1,35 @@
 require 'spec_helper'
 describe ApplicationsController do
-  before(:each) {login_user(user)}
+  before(:each) {login_user(FactoryGirl.create(:user))}
+
+  context '#show' do
+    let(:user) {@controller.current_user}
+    let(:application) {FactoryGirl.create(:application)}
+    it 'renders the :show template' do
+      user.subscribe(application)
+      get :show, id: application.id
+      expect(response).to render_template :show
+    end
+
+    it 'finds the application given to it when the user is subscribed' do
+      user.subscribe(application)
+      get :show, id: application.id
+      expect(assigns(:application)).to eq(application)
+    end
+
+    it 'throws a 404 when the given application cant be found' do
+      expect do
+        get :show, id: 'unknown'
+      end.to raise_error(ActiveRecord::RecordNotFound)
+    end
+
+    it 'throws a 404 when the current user is not subscribed for the given application' do
+      expect do
+        get :show, id: application.id
+      end.to raise_error(ActiveRecord::RecordNotFound)
+    end
+  end
+
   context '#new' do
     it 'renders the :new template' do
       get :new
@@ -34,10 +63,6 @@ describe ApplicationsController do
       end
     end
   end
-end
-
-def user
-  @user ||= FactoryGirl.create(:user)
 end
 
 def create_application

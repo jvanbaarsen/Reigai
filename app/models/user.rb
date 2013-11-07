@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
   def subscribe(application)
     self.applications << application
   end
+
+  def get_application(application_id)
+    applications.find(application_id)
+  end
 end
