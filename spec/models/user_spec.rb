@@ -31,8 +31,8 @@ describe User do
 
   context '#subscribe' do
     it "subscribed the user to a given application" do
-      user = FactoryGirl.create(:user)
-      application = FactoryGirl.create(:application)
+      user = FactoryGirl.build(:user)
+      application = FactoryGirl.build(:application)
       user.subscribe(application)
       expect(user.applications).to include(application)
     end
