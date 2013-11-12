@@ -1,9 +1,7 @@
-require 'json'
 class Api::V1::LogsController < ApplicationController
   skip_before_filter :require_login, only: [:create]
   def create
     begin
-      app = Application.find_by!(api_key: data[:api_key])
       app.create_log_from_api!(data)
       render nothing: true, status: 200
     rescue ActiveRecord::RecordNotFound
@@ -16,5 +14,9 @@ class Api::V1::LogsController < ApplicationController
   private
   def data
     @data ||= params[:data] || {api_key: 'invalid'}
+  end
+
+  def app
+    @app ||= Application.find_by!(api_key: data[:api_key])
   end
 end
